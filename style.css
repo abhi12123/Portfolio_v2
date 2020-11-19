@@ -3,10 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
 header{
     display: flex;
     justify-content: center;
-    
 }
 nav{
     display: flex;
@@ -20,29 +29,45 @@ nav{
     color: white;
     padding:0 10%;
     background-color: #433E53;
+    animation: fadein 1s 2s forwards;
+    opacity: 0;
 }
 .hamburger{
     display: flex;
     flex-direction: column;
+   
 }
-
-.line1,.line2,.line3{
-    height: 3px;
-    width: 25px;
-    background-color:white;
-    margin: 2px;
+.hamburger-navbar{
+    position: fixed;
+    width: 50vw;
+    height: 100vh;
+    background-color:#B2B2B2;
+    z-index: 15;
+    left: 0;
+    transform: translateX(-100%);
+    display: flex;
+    justify-content: space-around;
+    padding: 10%;
+    transition: all ease-in-out 0.5s;
+}
+.navbar-link{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 .icons{
-    width: 150px;
+    width: 6rem;
     display: flex;
     justify-content: space-between;
 }
+
 main{
     width: 100vw;
     height: 400vh;
     position: relative;
     display:grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.7fr 1fr;
 }
 .home{
     display: flex;
@@ -58,12 +83,25 @@ main{
     min-width: 150px;
     height: 50vh;
 }
+#right{
+    animation: rotate 1s forwards;
+    transform-origin: 100% 0%;
+}
+#left{
+    opacity: 0;
+    animation: rotate 1s forwards, fadein 1s forwards;
+}
+.name{
+    animation: fadein 1s 1s forwards;
+    transform: translateY(-3rem);
+    opacity: 0;
+}
 .about-me{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #433E53;
-    color: rgb(255,255,255,0.6);
+    color: white;
 }
 .about-me div{
     display: flex;
@@ -93,30 +131,15 @@ main{
 .slideshow{
     background-color: none;
     margin: 0% 10%;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-y: hidden;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap: 10px;
     position: relative;
     height: 100%;
-}
-.btn-left,.btn-right{
-    position: absolute;
-    color: rgba(0, 0, 0, 0.6);
-}
-.btn-left{
-    left: 0;
-    top:50%;
-    transform: translateY(-50%);
-}
-.btn-right{
-    right: 0;
-    top:50%;
-    transform: translateY(-50%);
+    transition: ease 1s;
 }
 article{
-    border-radius: 1rem;
-    width: 18vw;
     background-color: white;
 }
 .skills{
@@ -156,13 +179,57 @@ footer h3{
     width: 150px;
     justify-content: space-around;
 }
+.list-of-skills{
+    display: flex;
+    align-items: space-around;
+    justify-content: space-around;
+    padding: 0% 10%;
+}
+.list-of-skills div{
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: space-around;
+}
+.fas,.fab,.far{
+    color: #B2B2B2;
+    cursor: pointer;
+}
+.fas:hover,.fab:hover,.far:hover{
+    color: white;
+}
+#close-btn{
+    color: white;
+}
+#close-btn:hover{
+    color: black;
+}
 @keyframes rotate{
-
+    from{
+        transform: rotateZ(-45deg);
+    }
+    to{
+        transform: rotateZ(0deg);
+    }
+}
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 
 @media only screen and (max-width: 700px) {
-    article{
-        width: 38vw;
-        height: 30vh;
+    .slideshow{
+        background-color: none;
+        margin: 0% 10%;
+        display:grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+        position: relative;
+        height: 100%;
     }
   }
