@@ -111,7 +111,7 @@ main{
     justify-content: space-around;
     align-items: center;
 }
-.about-me div button{
+button{
     background-color: #433E53;
     color: rgb(255,255,255,0.6);
     padding: 15px;
@@ -132,7 +132,7 @@ main{
     background-color: none;
     margin: 0% 10%;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     grid-template-rows:1fr 1fr;
     gap: 10px;
     position: relative;
@@ -140,11 +140,26 @@ main{
     transition: ease 1s;
 }
 article{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
     background-color: white;
+    padding: 10px;
+    cursor: pointer; 
+}
+article:hover{
+    border:  #433E53 3px solid;
+}
+
+.articleimage{
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
 }
 .skills{
     display: grid;
-    grid-template-rows: 1fr 1fr 4fr 1fr;
+    grid-template-rows: 0fr 1fr 4fr 1fr;
     background-color: #433E53;
     color: rgb(255,255,255,0.6);
 }
@@ -226,10 +241,19 @@ footer h3{
         background-color: none;
         margin: 0% 10%;
         display:grid;
-        grid-template-columns: 1fr 1fr ;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ;
         gap: 10px;
         position: relative;
         height: 100%;
+    }
+    #extra{
+        display: none;
+    }
+    .articleimage{
+        display: none;
+    }
+    article div button{
+        display: none;
     }
   }
